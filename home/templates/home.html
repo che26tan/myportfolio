@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block title %}Home Page{%endblock %} 
+
+{% block cssnjs %}
+<link rel="stylesheet" href='{% static "css/home.css" %}'>
+<script src="js/home.js" defer></script>
+{% endblock %} 
+
+{% block main_body %}
+<main class='main_body'>
+    <section>
+        <div class="blog">
+            <h2>Top Blogs</h2>
+            {% for i in blogs %}
+            <div class="blog-content">
+				<div class="blog-title">
+                	<div>{{i.blog_title}}</div>
+                	<p>{{i.blog_des}}</p>
+            	</div>
+				<div class="blog-meta">
+					<span>
+						<a onclick="like"><img src="{% static 'icon/thumbup24.svg' %}" alt="like"></a>
+						{{i.like}}
+					</span>
+					<span>
+						<a onclick="dislike"><img src="{% static 'icon/thumbdown24.svg' %}" alt="like"></a>
+						{{i.dislike}}
+					</span>
+					<span>
+{#						{{i.author-name}}#}
+					</span>
+				</div>
+			</div>
+            {% endfor %}
+        </div>
+        <div class="thought">
+            <h2>Top Thoughts</h2>
+            {% for i in thoughts %}
+            <div class="thought-content">
+				<div class="thought-title">
+					<p>{{i.thought}}</p>
+				</div>
+				<div class="thought-meta">
+					<span>
+						<a onclick="like"><img src="{% static 'icon/thumbup24.svg' %}" alt="like-logo"></a>
+						{{i.like}}
+					</span>
+					<span>
+						<a onclick="dislike"><img src="{% static 'icon/thumbdown24.svg' %}" alt="like"></a>
+						{{i.dislike}}
+					</span>
+				</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block title %}Blog Page{%endblock %} 
+
+{% block cssnjs %}
+<link rel="stylesheet" href='{% static "css/blog.css" %}'>
+<script src="js/blog.js" defer></script>
+{% endblock %} 
+
+{% block main_body %}
+<main class='main_body'>
+    <section>
+        <div>
+            <form method="get">
+                <select>
+                    <option>-----select your category-----</option>
+                    {% for i in categories %}
+                    <option value={{i}}>{{i}}</option>
+                    {% endfor %}            
+                </select>
+                <input type='text' name='author_name' placeholder="Author Name"/>
+                <button type="submit">Search</button>            
+            </form>
+        </div>
+        <div>
+            <h3>Top Blogs</h3>
+            {% for i in blogs_by_filters %}
+            <div>
+                <span><h4>title</h4></span>
+                <span><pre>desc</pre></span>
+            </div>
+            <div>
+                <span>likes</span>
+                <span>dislikes</span>
+            </div>
+            {% endfor %}
+        </div>
+        <div class=pagination>
+			
+		</div>
+    </section>
+</main>
+{% endblock %}

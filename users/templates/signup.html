@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block title %}Blog Page{%endblock %} 
+
+{% block cssnjs %}
+<link rel="stylesheet" href='{% static "css/login.css" %}'>
+<script src="js/login.js" defer></script>
+{% endblock %} 
+
+{% block main_body %}
+<main class='main_body'>
+    <section>
+		<fieldset>
+    	<legend><h3>Login Form</h3></legend>
+    	<form action="" method="post">
+			{% csrf_token %}
+        	<input type="text" pattern="[a-zA-z ]{5,50}" placeholder="Enter Your Name" name="firstname"/>
+			<input type="text" pattern="[a-zA-z ]{5,50}" placeholder="Enter Your Name" name="lastname"/><br/>
+        	<input type="radio" value="male" name="gender"/>Male
+        	<input type="radio" value="female" name="gender"/>Female<br/>
+        	<input type="email" placeholder="Enter Your Email" name="uemail"/><br/>
+        	<input type="password" pattern="[a-zA-Z @#]{5-25}" name="pd"/><br/>
+        	<input type="tel" pattern="[0-9]{10}" placeholder="Enter Your Phone No." name="uphone" title="Enter your current phone number"/><br/>
+			<label for="">Message</label><br/>
+			<textarea></textarea><br/>
+			<label for="">Courses</label><br/>
+			<input type="checkbox" value="Python"/>Python
+			<input type="checkbox" value="Java"/>Java
+			<input type="checkbox" value="C"/>C
+			<input type="checkbox" value="C++"/>C++<br/>
+			<label for="">Courses</label><br/>
+			<select>
+				<option>-----Select Courses-----</option>
+				<optgroup label="Backend">
+					<option value="python">Python</option>
+					<option value="java">Java</option>
+					<option value="c++">C++</option>
+				</optgroup>
+				<optgroup label="Frontend">
+					<option value="html">HTML</option>
+					<option value="css">CSS</option>
+					<option value="js">JavaScript</option>
+				</optgroup>
+			</select><br/>
+			<label for="">Photo</label><br/>
+			<input type="file"/><br/>
+			<label>Country</label><br/>
+			<select>
+				<option>-----Select Country-----</option>
+				<option value="india">India</option>
+				<option value="aus">Aus</option>
+			</select><br/>
+			<button type="Submit">Submit</button>
+			<input type="submit" value="Go"/>
+    </form>
+    </fieldset>
+    </section>
+</main>
+{% endblock %}

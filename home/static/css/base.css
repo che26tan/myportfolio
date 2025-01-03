@@ -1,0 +1,21 @@
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: sans-serif;*/
+/*}*/
+
+html, body {
+    height: 100%; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+/* Let the main content fill the remaining space */
+main {
+    position: relative;
+    top: 75px;
+    flex: 1; /* Grow to fill available vertical space */
+    padding: 0 20px;
+}
+
